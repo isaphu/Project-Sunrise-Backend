@@ -3,6 +3,18 @@ module.exports = (sequelize, DataType) => {
         contact_us_id: {
             type: DataType.INTEGER
         },
-        
+        name: {
+            type: DataType.varchar(150)
+        },
+        email: {
+            type: DataType.varchar(150)
+        },
+        subject: {
+            type: DataType.TEXT
+        },
+        details: {
+            type: DataType.TEXT
+        }
+
     })
 }
