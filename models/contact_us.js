@@ -3,7 +3,7 @@ module.exports = (sequelize, DataType) => {
         contact_us_id: {
             type: DataType.INTEGER
         },
-        name: {
+        firstname: {
             type: DataType.varchar(150)
         },
         email: {
