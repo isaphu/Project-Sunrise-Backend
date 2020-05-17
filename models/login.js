@@ -4,10 +4,10 @@ module.exports = (sequelize, DataType) => {
             type: DataType.INTEGER
         },
         email: {
-            type: DataType.varchar(150)
+            type: DataType.varchar(100)
         },
         password: {
-            type: DataType.varchar(150)
+            type: DataType.varchar(100)
         },
         status: {
             type: DataType.BOOLEAN
