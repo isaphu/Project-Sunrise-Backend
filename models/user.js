@@ -19,4 +19,7 @@ module.exports = (sequelize, DataType) => {
             type: DataType.BOOLEAN
         }
     })
+    user.associate = (models) => {
+        user.hasMany(models.contact_us, {user_id}) 
+    }
 }
