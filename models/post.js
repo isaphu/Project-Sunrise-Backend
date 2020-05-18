@@ -10,7 +10,7 @@ module.exports = (sequelize, DataType) => {
             type: DataType.text
         },
         timestamp: {
-            type: DataType.DATE(6)
+            type: DataType.DATE
         }
     })
 }
