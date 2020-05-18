@@ -13,4 +13,8 @@ module.exports = (sequelize, DataType) => {
             type: DataType.DATE
         }
     })
+    post.associate = (models) => {
+        post.belongsTo(models.user)
+    }
+    return post;
 }

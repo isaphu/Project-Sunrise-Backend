@@ -13,4 +13,8 @@ module.exports = (sequelize, DataType) => {
             type: DataType.BOOLEAN
         }
     })
+    login.associate = (models) => {
+        login.belongsTo(models.user)
+    }
+    return login;
 }
