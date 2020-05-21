@@ -7,7 +7,7 @@ module.exports = (sequelize, DataType) => {
             type: DataType.BLOB
         },
         text: {
-            type: DataType.text
+            type: DataType.TEXT
         },
         timestamp: {
             type: DataType.DATE
