@@ -18,7 +18,7 @@ module.exports = (sequelize, DataType) => {
 
     })
     contact_us.associate = (models) => {
-        contact_us.belongsTo(models.user)
+        contact_us.belongsTo(models.user, { foreignKey: 'user_id'});
     }
     return contact_us;
 }

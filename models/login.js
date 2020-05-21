@@ -14,7 +14,7 @@ module.exports = (sequelize, DataType) => {
         }
     })
     login.associate = (models) => {
-        login.belongsTo(models.user)
+        login.belongsTo(models.user, { foreignKey: 'user_id'});
     }
     return login;
 }
