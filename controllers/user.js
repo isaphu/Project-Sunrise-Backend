@@ -1,7 +1,7 @@
 const db = require('../models');
 
 const getAllUsers = (req,res) => {
-    const 
+     
 };
 const getUsersById = (req,res) => {
 
