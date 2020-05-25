@@ -5,7 +5,12 @@ const getAllUsers = (req,res) => {
 
     res.send(users);
 };
-const getUsersById = (req,res) => {};
+
+const getUsersById = async (req,res) => {
+    const userId = req.params.id;
+    const targetUser = await db.users.findOne();
+
+};
 const createNewUsers = (req,res) => {};
 const editUsersById = (req,res) => {};
 const deleteUsersById = (req,res) => {};
