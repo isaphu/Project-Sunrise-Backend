@@ -8,7 +8,7 @@ const getAllUsers = (req,res) => {
 
 const getUsersById = async (req,res) => {
     const userId = req.params.id;
-    const targetUser = await db.users.findOne();
+    const targetUser = await db.users.findOne({ where: {id: userId }});
 
 };
 const createNewUsers = (req,res) => {};
