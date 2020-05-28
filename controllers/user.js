@@ -26,12 +26,9 @@ const createNewUsers = async (req,res) => {
     })
     res.status(201).send(newUser);
 };
-const editUsersById = (req,res) => {
+const editUsersById = (req,res) => {};
+const deleteUsersById = (req,res) => {};
 
-};
-const deleteUsersById = (req,res) => {
-    
-};
 
 module.exports = {
     getAllUsers,
