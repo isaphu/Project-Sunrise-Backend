@@ -42,10 +42,15 @@ const editUsersById = (req, res) => {
         where: { id: user_id }
     })
 
-    res.status(200).send({ message: `User ID: ${user_id} has been updated` })
+    res.status(200).send({ message: `User ID: ${user_id} has been updated` });
 };
-const deleteUsersById = (req, res) => {
 
+const deleteUsersById = (req, res) => {
+    const user_id = req.params.id;
+
+    await db.User.destroy({ where: { id: user_id } });
+    
+    res.status(204).send();
 };
 
 
