@@ -1,18 +1,18 @@
 const db = require('../models');
 
-const getAllUsers = async (req,res) => {
+const getAllUsers = async (req, res) => {
     const users = await db.User.findAll();
 
     res.send(users);
 };
 
-const getUsersById = async (req,res) => {
+const getUsersById = async (req, res) => {
     const user_id = Number(req.params.id);
-    const targetUser = await db.users.findOne({ where: {id: user_id }});
+    const targetUser = await db.users.findOne({ where: { id: user_id } });
 
     res.send(targetUser);
 };
-const createNewUsers = async (req,res) => {
+const createNewUsers = async (req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastname;
     const userEmail = req.body.email;
@@ -26,10 +26,25 @@ const createNewUsers = async (req,res) => {
     })
     res.status(201).send(newUser);
 };
-const editUsersById = (req,res) => {
+const editUsersById = (req, res) => {
     const user_id = req.params.id;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
+
+    await db.User.update({
+        firstname: firstName,
+        lastname: lastName,
+        email: userEmail,
+        password: userPassword,
+    }, {
+        where: { id: user_id }
+    })
+
+    res.status(200).send({ message: `User ID: ${user_id} has been updated` })
 };
-const deleteUsersById = (req,res) => {
+const deleteUsersById = (req, res) => {
 
 };
 
