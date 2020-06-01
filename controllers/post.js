@@ -4,3 +4,10 @@ const createPost = async (req,res) => {};
 const getAllPost = async (req,res) => {};
 const editPost = async (req,res) => {};
 const deletePost = async (req,res) => {};
+
+module.exports = {
+    createPost,
+    getAllPost,
+    editPost,
+    deletePost
+}
