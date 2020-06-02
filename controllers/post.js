@@ -26,19 +26,28 @@ const editPost = async (req,res) => {
     });
 
     if (!targetPost) {
-        res.status(404).send({ message: `Post id: ${targetID} not found`})
+        res.status(404).send({ message: `Post id: ${targetID} not found.`})
     } else {
         await targetPost.update({
             photo,
             text,
             timestamp,
         });
-        res.status(200).send({ message: `Post id: ${targetID} has been update`});
+        res.status(200).send({ message: `Post id: ${targetID} has been update.`});
     }
 };
 const deletePost = async (req,res) => {
+    const targetID = req.params.id;
 
-
+    const targetPost = await db.postfindOne({
+        where: { id: targetID, user_id: req.user.id },
+    });
+    if (!targetPost) {
+        res.status(404).send({ message: `Post id: ${targetID} not found.`});
+    } else {
+        await targetPost.destroy();
+        res.status(200).send({ message: `Post id: ${targetID} has been update.`});
+    }
 };
 
 module.exports = {
