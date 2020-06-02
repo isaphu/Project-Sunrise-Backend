@@ -17,8 +17,19 @@ const getAllPost = async (req,res) => {
 
     res.send(allPost)
 };
-const editPost = async (req,res) => {};
-const deletePost = async (req,res) => {};
+const editPost = async (req,res) => {
+    const targetID = req.params.id;
+    const { photo, text, timestamp} = req.body;
+
+    const targetPost = await db.post.findOne({
+        where: { id: targetID, user_id: req.user.id },
+    });
+
+};
+const deletePost = async (req,res) => {
+
+
+};
 
 module.exports = {
     createPost,
