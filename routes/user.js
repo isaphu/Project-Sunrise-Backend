@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/user')
+const { getAllUsers,getUsersById,createNewUsers,editUsersById,deleteUsersById } = require('../controllers/user');
+const passport = require('passport');
+
+const auth = passport.authenticate('jwt', { session: false });
 
 router.get('/', userController.getAllUsers);
 router.get('/', userController.getUsersById);
