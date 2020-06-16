@@ -4,7 +4,7 @@ const URL = 'https://api.foursquare.com/v2/venues/explore?near=';
 
 
 const getVenue = async (req, res) => {
-    
+    // const = city ต้องทำอย่างไรต่อ 
     const urlToFetch = url + city + '&limit=5&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=202006016';
     try {
     const response = await fetch(urlToFetch);
@@ -18,6 +18,8 @@ const getVenue = async (req, res) => {
     console.log(error)
  }
 }
+
+
 
 module.exports = {
     getVenue
