@@ -4,7 +4,7 @@ URL = 'https://api.foursquare.com/v2/venues/explore?near='
 
 
 const getVenue = async (req, res) => {
-    const urlToFetch = ''
+    const urlToFetch = `${url}${city}&limit=5&client_id=${clientId}&client_secret=${clientSecret}&v=202006016`
     try {
     const response = await fetch(urlToFetch);
     if (response.ok) {
