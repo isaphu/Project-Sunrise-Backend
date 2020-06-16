@@ -1,10 +1,11 @@
-clientID = 'LYS0Z0AY02GALG1UKBQ4CDTZ2QKGHVLAPZUCNTQLZH3HAVCR'
-clinetSecret = 'MRNFTSAWBBYKNJXJUUSTINU3ELF0QBPF3QYJOTUV02G1F5XV'
-URL = 'https://api.foursquare.com/v2/venues/explore?near='
+const clientID = 'LYS0Z0AY02GALG1UKBQ4CDTZ2QKGHVLAPZUCNTQLZH3HAVCR';
+const clinetSecret = 'MRNFTSAWBBYKNJXJUUSTINU3ELF0QBPF3QYJOTUV02G1F5XV';
+const URL = 'https://api.foursquare.com/v2/venues/explore?near=';
 
 
 const getVenue = async (req, res) => {
-    const urlToFetch = `${url}${city}&limit=5&client_id=${clientId}&client_secret=${clientSecret}&v=202006016`
+    
+    const urlToFetch = url + city + '&limit=5&client_id=' + clientId + '&client_secret=' + clientSecret + '&v=202006016';
     try {
     const response = await fetch(urlToFetch);
     if (response.ok) {
