@@ -19,8 +19,6 @@ const getVenue = async (req, res) => {
  }
 }
 
-
-
 module.exports = {
     getVenue
 }
