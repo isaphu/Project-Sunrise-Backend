@@ -1,4 +1,6 @@
 const db = require('../models');
+const bcrypt = require('bcryptjs');
+
 
 const getAllUsers = async (req, res) => {
     const users = await db.User.findAll();
@@ -13,20 +15,33 @@ const getUsersById = async (req, res) => {
     res.send(targetUser);
 };
 const createNewUsers = async (req, res) => {
-    const firstName = req.body.firstName;
+    const firstName = req.body.firstname;
     const lastName = req.body.lastname;
     const userEmail = req.body.email;
-    const userPassword = Number(req.body.password);
-
-    const newUser = await db.User.create({
-        firstname: firstName,
-        lastname: lastName,
-        email: userEmail,
-        password: userPassword,
+    const userPassword = req.body.password;
+    
+    const user = await db.User.findOne({
+        where: { email: userEmail} 
     })
-    res.status(201).send(newUser);
+
+    if (user) {
+        res.status(400).send('Email is already registered!')
+    } else {
+        let salt = bcrypt.genSaltSync(12)
+        let hashPassword = bcrypt.hashSync(
+            userPassword, salt
+        )
+        const newUser = await db.User.create({
+            firstname: firstName,
+            lastname: lastName,
+            email: userEmail,
+            password: hashPassword,
+        })
+        res.status(201).send(newUser);
+    }
+ 
 };
-const editUsersById = (req, res) => {
+const editUsersById = async (req, res) => {
     const user_id = req.params.id;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
@@ -45,7 +60,7 @@ const editUsersById = (req, res) => {
     res.status(200).send({ message: `User ID: ${user_id} has been updated` });
 };
 
-const deleteUsersById = (req, res) => {
+const deleteUsersById = async (req, res) => {
     const user_id = req.params.id;
 
     await db.User.destroy({ where: { id: user_id } });

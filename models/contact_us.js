@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataType) => {
     const contact_us = sequelize.define("contact_us", {
-        contact_us_id: {
-            type: DataType.INTEGER
-        },
         firstname: {
             type: DataType.STRING(150)
         },
@@ -18,7 +15,7 @@ module.exports = (sequelize, DataType) => {
 
     })
     contact_us.associate = (models) => {
-        contact_us.belongsTo(models.user, { foreignKey: 'user_id'});
+        contact_us.belongsTo(models.User, { foreignKey: 'user_id'});
     }
     return contact_us;
 }

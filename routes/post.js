@@ -8,7 +8,7 @@ const auth = passport.authenticate('jwt', { session: false });
 router.post('/', auth, createPost)
 router.get('/', auth, getAllPost)
 router.put('/', auth, editPost)
-router.deletePost('/', auth, deletePost)
+router.delete('/', auth, deletePost)
 
 
 module.exports = router;

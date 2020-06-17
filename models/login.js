@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataType) => {
     const login = sequelize.define("login", {
-        login_id: {
-            type: DataType.INTEGER
-        },
         email: {
             type: DataType.STRING(150)
         },
@@ -14,7 +11,7 @@ module.exports = (sequelize, DataType) => {
         }
     })
     login.associate = (models) => {
-        login.belongsTo(models.user, { foreignKey: 'user_id'});
+        login.belongsTo(models.User, { foreignKey: 'user_id'});
     }
     return login;
 }
