@@ -1,4 +1,6 @@
+// นำข้อมูลจาก models ที่เราเขียนเข้ามา
 const db = require('../models');
+//ใช้ bcrypt เพื่อ hash password 
 const bcrypt = require('bcryptjs');
 
 

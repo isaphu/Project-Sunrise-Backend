@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-
 // app.use('/contact_us', contact_usRoutes)
 // app.use('/login', loginRoutes)
 app.use('/post', postRoutes)
